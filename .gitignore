@@ -1,0 +1,17 @@
+﻿# Terraform files
+terraform/.terraform/
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/*.zip
+.terraform.lock.hcl
+
+# AWS credentials
+Anas-Tarek_accessKeys.csv
+account-id.txt
+
+# Node modules
+backend/node_modules/
+backend/server.js
+
+# Other
+q-dev-chat-*.md
