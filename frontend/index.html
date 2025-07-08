@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anas Tarek</title>
+    <title>Anas Tarek | Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css?v=2025070623">
 </head>
 <body>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
     <div class="sidebar">
         <div class="nav-icons">
             <a href="#home" class="nav-icon active" data-title="Home"><img src="images/home.png" alt="Home"></a>
@@ -17,7 +22,7 @@
             <a href="#resume" class="nav-icon" data-title="Resume"><img src="images/resume.png" alt="Resume"></a>
             <a href="#certificates" class="nav-icon" data-title="Certificates"><img src="images/certificates.png" alt="Certificates"></a>
             <a href="#projects" class="nav-icon" data-title="Projects"><img src="images/projects.png" alt="Projects"></a>
-            <a href="#visitors" class="nav-icon" data-title="Visitors"><img src="images/visitors.png" alt="Visitors"></a>
+
         </div>
     </div>
     <div class="content">
@@ -30,6 +35,9 @@
                     <a href="https://www.linkedin.com/in/anastarek"><img src="images/linkedin.png" alt="LinkedIn"></a>
                     <a href="mailto:anastarek10777@gmail.com"><img src="images/email.png" alt="Email"></a>
                 </div>
+                <div id="visitor-counter" class="visitor-counter">
+                    <p>Site Visitors: <span id="visitor-count">Loading...</span></p>
+                </div>
             </div>
         </section>
         <section id="about" class="section">
@@ -38,7 +46,7 @@
                 <img src="images/my-photo.jpeg" alt="Anas Tarek" class="about-photo">
                 <div class="about-text">
                     <h3>Cloud Technology Enthusiast and Future Innovator</h3>
-                    <p>Certified cloud enthusiast with AWS and Huawei Cloud credentials, currently pursuing a Bachelor's in Software Industry & Multimedia. Gained hands-on experience in cloud infrastructure, automation, and deployment through academic projects. Eager to grow in a cloud-focused role and apply my knowledge in real-world environments. Currently pursuing a Bachelor's degree in Software Industry & Multimedia. While I’m at the beginning of my professional journey, I’ve built a strong foundation through hands-on AWS and Huawei cloud projects, gaining experience in cloud infrastructure, automation, and deployment. Eager to grow in a cloud-focused role where I can contribute, learn, and support real-world systems in a collaborative environment.</p>
+                    <p>I am a certified cloud enthusiast with credentials from AWS and Huawei. My academic journey has provided me with a strong foundation and hands-on experience in cloud infrastructure, automation, and deployment through a variety of projects. I am eager to apply my technical skills in a real-world environment and am seeking an entry-level cloud-focused role where I can contribute, learn, and grow.</p>
                 </div>
             </div>
         </section>
@@ -48,7 +56,7 @@
             <div class="tool-cards">
                 <div class="tool-card" onclick="window.location.href='https://aws.amazon.com/'">
                     <div class="tool-icon-circle">
-                        <img src="images/aws.svg" alt="AWS">
+                        <img src="images/AWS.svg" alt="AWS">
                     </div>
                     <div class="tool-details">
                         <h4>AWS</h4>
@@ -218,15 +226,30 @@
     </div>
 </section>
 
-    <!-- visitors-Section -->
 
-    <section id="visitors" class="section">
-    <h2>Visitors</h2>
-    <p class="section-intro">Track the number of visitors to this site in real-time. The counter updates live with each connection.</p>
-    <div id="visitor-counter" class="visitor-counter">
-        <p>Visitors: <span id="visitor-count">0</span></p>
+        <footer>
+            <p>© Anas Tarek. All rights reserved.</p>
+        </footer>
     </div>
+
     <script>
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+        }
+        
+        // Close mobile menu when clicking on nav items
+        document.addEventListener('DOMContentLoaded', () => {
+            const navIcons = document.querySelectorAll('.nav-icon');
+            navIcons.forEach(icon => {
+                icon.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('.sidebar').classList.remove('active');
+                    }
+                });
+            });
+        });
+        
         async function updateVisitorCount() {
             try {
                 const response = await fetch('https://5xwzjw1xh6.execute-api.us-east-1.amazonaws.com/prod/visitors', {
@@ -250,10 +273,51 @@
             updateVisitorCount();
         });
     </script>
-</section>
-        <footer>
-            <p>© Anas Tarek. All rights reserved. | Icons made by <a href="https://www.flaticon.com" target="_blank">Flaticon</a>.</p>
-        </footer>
-    </div>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+
+        function setActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navIcons = document.querySelectorAll('.nav-icon');
+            let currentSection = '';
+
+            window.addEventListener('scroll', () => {
+                let found = false;
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                        found = true;
+                    }
+                });
+
+                if (!found && window.scrollY < sections[0].offsetTop - 100) {
+                    currentSection = 'home';
+                }
+
+                navIcons.forEach(icon => {
+                    icon.classList.remove('active');
+                    if (icon.getAttribute('href') === `#${currentSection}`) {
+                        icon.classList.add('active');
+                    }
+                });
+            });
+
+            navIcons.forEach(icon => {
+                icon.addEventListener('click', () => {
+                    navIcons.forEach(i => i.classList.remove('active'));
+                    icon.classList.add('active');
+                    const sectionId = icon.getAttribute('href').substring(1);
+                    document.querySelector(`#${sectionId}`).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', setActiveNav);
+        console.log("Navigation JS loaded");
+    </script>
 </body>
 </html>

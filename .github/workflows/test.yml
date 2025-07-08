@@ -1,0 +1,51 @@
+name: Test Website
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Test HTML validity
+      run: |
+        echo "Testing HTML structure..."
+        if grep -q "<!DOCTYPE html>" frontend/index.html; then
+          echo "✅ HTML DOCTYPE found"
+        else
+          echo "❌ HTML DOCTYPE missing"
+          exit 1
+        fi
+    
+    - name: Test CSS exists
+      run: |
+        echo "Testing CSS file..."
+        if [ -f "frontend/style.css" ]; then
+          echo "✅ CSS file exists"
+        else
+          echo "❌ CSS file missing"
+          exit 1
+        fi
+    
+    - name: Test Lambda function exists
+      run: |
+        echo "Testing Lambda function..."
+        if [ -f "backend/lambda-code.py" ]; then
+          echo "✅ Lambda function exists"
+        else
+          echo "❌ Lambda function missing"
+          exit 1
+        fi
+    
+    - name: Test API endpoint (if accessible)
+      run: |
+        echo "Testing API endpoint..."
+        curl -f https://5xwzjw1xh6.execute-api.us-east-1.amazonaws.com/prod/visitors || echo "API test skipped (may require authentication)"

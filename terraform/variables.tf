@@ -9,3 +9,9 @@ variable "table_name" {
     type        = string
     default     = "visitors"
 }
+variable "domain_name" {
+    description = "Domain name for the website"
+    type        = string
+    default     = "anas-webiste.com"
+}
+

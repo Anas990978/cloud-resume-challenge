@@ -18,13 +18,13 @@ body {
 .sidebar {
     position: fixed;
     left: 25px;
-    top: 60px;
+    top: 100px;
     height: calc(100% - 50px);
     padding: 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: width 0.3s ease;
+    transition: all 0.3s ease;
     z-index: 1000;
 }
 
@@ -348,7 +348,7 @@ body {
 /* Visitors Section Styling */
 .visitor-counter {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 1.2em;
     color: #00C4B4;
 }
@@ -414,10 +414,45 @@ footer a:hover {
     color: #008C7A;
 }
 
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background-color: #129990;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    background-color: #0a6b63;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #FFFFFF;
+    margin: 4px auto;
+    transition: 0.3s;
+}
+
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .tool-card {
         width: calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .tool-card {
+        width: calc(50% - 20px);
     }
     .resume-content {
         flex-direction: column;
@@ -425,67 +460,258 @@ footer a:hover {
     .resume-column {
         padding: 0;
         margin-bottom: 40px;
+    }
+    .hero-content h1 {
+        font-size: 3.5em;
     }
 }
 
 @media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
     .sidebar {
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: flex-start;
-        padding: 40px;
-        transform: translateX(-100%);
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: rgba(28, 37, 38, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 80px 20px 20px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        border-right: 2px solid #129990;
     }
+    
     .sidebar.active {
-        transform: translateX(0);
+        left: 0;
     }
+    
     .nav-icons {
         flex-direction: column;
-        justify-content: flex-start;
-        gap: 20px;
+        gap: 15px;
+        align-items: flex-start;
+        width: 100%;
     }
+    
     .nav-icon {
-        margin: 10px 0;
+        width: 100%;
+        height: 60px;
+        border-radius: 10px;
+        justify-content: flex-start;
+        padding-left: 20px;
+        margin: 5px 0;
+        background-color: rgba(177, 187, 188, 0.2);
     }
+    
+    .nav-icon::after {
+        position: static;
+        transform: none;
+        background: none;
+        color: #FFFFFF;
+        padding: 0;
+        margin-left: 15px;
+        opacity: 1;
+        visibility: visible;
+        font-size: 1.1em;
+    }
+    
     .content {
         margin-left: 0;
+        padding: 10px;
     }
+    
     .hero-section {
         min-height: 100vh;
+        padding: 80px 20px 20px;
     }
+    
     .hero-content h1 {
         font-size: 2.5em;
+        line-height: 1.2;
     }
+    
     .hero-content .subtitle {
         font-size: 1.2em;
+        margin-bottom: 1.5em;
     }
+    
+    .social-icons {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .social-icons a {
+        padding: 10px;
+    }
+    
+    .social-icons img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .visitor-counter {
+        margin-top: 20px;
+        font-size: 1.1em;
+    }
+    
     .about-content {
         flex-direction: column;
         text-align: center;
+        gap: 20px;
     }
+    
+    .about-photo {
+        width: 180px;
+        height: 180px;
+        margin-right: 0;
+    }
+    
+    .about-text h3 {
+        font-size: 1.5em;
+        margin-top: 10px;
+    }
+    
+    .about-text p {
+        margin-top: 20px;
+        font-size: 1em;
+        text-align: left;
+    }
+    
+    .tool-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .tool-card {
+        width: 90%;
+        max-width: 350px;
+        padding: 20px;
+    }
+    
+    .tool-icon-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .tool-icon-circle img {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .resume-content {
+        flex-direction: column;
+    }
+    
+    .resume-column {
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    
+    .resume-column h3 {
+        font-size: 1.8em;
+    }
+    
+    .resume-details h4 {
+        font-size: 1.3em;
+    }
+    
+    .section {
+        padding: 30px 15px;
+    }
+    
+    .section h2 {
+        font-size: 2em;
+    }
+    
+    .section p, .section ul li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+    
+    .hero-content .subtitle {
+        font-size: 1em;
+    }
+    
+    .social-icons {
+        gap: 10px;
+    }
+    
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+    }
+    
     .about-photo {
         width: 150px;
         height: 150px;
     }
-    .tool-cards {
-        flex-direction: column;
-        align-items: center;
+    
+    .about-text h3 {
+        font-size: 1.3em;
     }
+    
     .tool-card {
-        width: 80%;
+        width: 95%;
+        padding: 15px;
     }
-    .resume-content {
-        flex-direction: column;
+    
+    .tool-icon-circle {
+        width: 80px;
+        height: 80px;
     }
-    .resume-column {
-        padding: 0;
-        margin-bottom: 40px;
+    
+    .tool-icon-circle img {
+        width: 70px;
+        height: 70px;
     }
+    
+    .tool-details h4 {
+        font-size: 1.1em;
+    }
+    
+    .tool-details p {
+        font-size: 0.85em;
+    }
+    
     .section h2 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
-    .section p, .section ul li {
+    
+    .resume-column h3 {
+        font-size: 1.5em;
+    }
+    
+    .resume-details h4 {
+        font-size: 1.2em;
+    }
+    
+    .visitor-counter {
         font-size: 1em;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    .nav-icon:hover::after {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .tool-card:hover {
+        transform: none;
+    }
+    
+    .nav-icon:active,
+    .tool-card:active {
+        transform: scale(0.95);
     }
 }

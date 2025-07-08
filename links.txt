@@ -1,0 +1,5 @@
+api_url = "https://5xwzjw1xh6.execute-api.us-east-1.amazonaws.com/prod/visitors"
+dynamodb_table_name = "visitors"
+s3_bucket_name = "my-website-resume-bucket"
+website_url = "https://d1hmohpegyvejg.cloudfront.net"
+https://anas-webiste.com
