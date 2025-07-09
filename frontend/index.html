@@ -192,7 +192,7 @@
         </section>
         <section id="projects" class="section">
     <h2>Projects</h2>
-    <p class="section-intro">Explore some of the hands-on projects I've worked on to showcase my skills in cloud computing and software development.</p>
+    <p class="section-intro">Explore some of the hands-on projects I've worked on to showcase my skills in cloud computing, AI/ML, and software development.</p>
     <div class="resume-content">
         <div class="resume-column">
             <div class="resume-entry">
@@ -200,25 +200,68 @@
                 <div class="resume-details">
                     <h4><a href="https://github.com/Anas990978/cloud-resume-challenge">Cloud Resume Challenge</a></h4>
                     <p class="resume-date">June 2025 - Present</p>
+                    <p><strong>Technologies:</strong> AWS (S3, CloudFront, Lambda, API Gateway, DynamoDB, Route 53), Terraform, GitHub Actions, HTML, CSS, JavaScript</p>
                     <ul>
-                        <li>Developed a personal resume website hosted on AWS S3 for static hosting.</li>
-                        <li>Implemented CloudFront for content delivery and Route 53 for DNS management.</li>
-                        <li>Integrated a dynamic visitor counter using DynamoDB and AWS Lambda.</li>
-                        <li>Deployed the application using AWS Serverless Application Model (SAM).</li>
-                        <li>Demonstrates skills in building scalable, cloud-based applications with user interaction.</li>
+                        <li>Developed and deployed a static resume website built with HTML, CSS, and JavaScript.</li>
+                        <li>Hosted the static site on AWS S3 and served it globally with low latency using AWS CloudFront as a CDN.</li>
+                        <li>Configured Amazon Route 53 to manage a custom domain, directing DNS queries to the CloudFront distribution.</li>
+                        <li>Built a serverless backend using AWS Lambda and API Gateway to handle a visitor counter feature.</li>
+                        <li>Utilized Amazon DynamoDB to store and retrieve the website's visitor count.</li>
+                        <li>Automated the entire infrastructure provisioning process using Terraform for Infrastructure as Code (IaC).</li>
+                        <li>Implemented a CI/CD pipeline using GitHub Actions to automatically deploy changes to the frontend and backend upon code commits.</li>
                     </ul>
                 </div>
             </div>
             <div class="resume-entry">
                 <div class="resume-circle"></div>
                 <div class="resume-details">
-                    <h4><a href="https://github.com/Anas990978/aws-multi-tier-vpc">AWS Multi-Tier VPC Architecture</a></h4>
-                    <p class="resume-date">May 2025</p>
+                    <h4><a href="https://github.com/Maliikx/soul_support">Soul Support</a></h4>
+                    <p class="resume-date">2024-2025</p>
+                    <p><strong>Technologies:</strong> Flutter, Dart, Python, TensorFlow, Keras, Scikit-learn, NumPy, JSON, Natural Language Processing (NLP)</p>
                     <ul>
-                        <li>Designed a multi-tier Virtual Private Cloud (VPC) on AWS.</li>
-                        <li>Included public and private subnets, an Internet Gateway, and NAT Gateway.</li>
-                        <li>Configured custom route tables to enhance network security and scalability.</li>
-                        <li>Utilized AWS VPC services to create a robust infrastructure for production environments.</li>
+                        <li><strong>Front-End Development:</strong> Architected and developed the entire patient registration system from the ground up using Flutter. This involved creating a seamless, user-friendly interface for patient onboarding, ensuring a smooth and intuitive user experience.</li>
+                        <li><strong>Chatbot Integration:</strong> Designed and developed "Soul Mate," a conversational AI to serve as a personal therapeutic assistant on the Soul Support platform.</li>
+                        <li><strong>AI & Machine Learning:</strong> Sourced and structured a comprehensive dataset of intents, patterns, and responses in a JSON file to define the chatbot's knowledge base on topics ranging from emotional states (sadness, anxiety) to factual mental health information.</li>
+                        <li>Built, trained, and deployed a deep learning model for Natural Language Understanding using Python with TensorFlow and Keras libraries.</li>
+                        <li>Engineered a data preprocessing pipeline to vectorize text data using the Keras Tokenizer and encode labels with Scikit-learn.</li>
+                        <li>Implemented and trained a sequential neural network with an Embedding layer, achieving high accuracy in classifying user intent after 550 epochs of training.</li>
+                        <li>Developed a Python-based interactive interface that uses the saved model to predict user intent and generate contextually appropriate, empathetic responses.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="resume-column">git add .
+        git commit -m "Update projects section with comprehensive project details"
+        git push origin main
+
+            <div class="resume-entry">
+                <div class="resume-circle"></div>
+                <div class="resume-details">
+                    <h4><a href="https://coursera.org/share/222d57ff2b3b65a8fc59dba4a75010ac">AWS Multi-Tier VPC Architecture</a></h4>
+                    <p class="resume-date">August 2024</p>
+                    <p><strong>Technologies:</strong> AWS VPC, Subnets, Internet Gateway, NAT Gateway, Route Tables</p>
+                    <ul>
+                        <li><strong>VPC Creation:</strong> Created a custom VPC with a specified IPv4 CIDR block (e.g., 10.0.0.0/16).</li>
+                        <li><strong>Subnet Creation:</strong> Designed and implemented both public and private subnets across different availability zones to ensure high availability and fault tolerance.</li>
+                        <li><strong>Internet Gateway:</strong> Attached an Internet Gateway to the VPC to enable internet access for the public subnet.</li>
+                        <li><strong>NAT Gateway:</strong> Deployed a NAT Gateway in the public subnet to allow instances in the private subnet to securely access the internet.</li>
+                        <li><strong>Route Tables:</strong> Configured route tables for public and private subnets to control the flow of traffic.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="resume-entry">
+                <div class="resume-circle"></div>
+                <div class="resume-details">
+                    <h4><a href="https://coursera.org/share/f0937d3b1eb8dbdd6bafa054fb285386">Semantic Segmentation with Amazon SageMaker</a></h4>
+                    <p class="resume-date">2024</p>
+                    <p><strong>Technologies:</strong> Amazon SageMaker, S3, IIIT-Oxford Pets Dataset, Machine Learning</p>
+                    <ul>
+                        <li><strong>Data Preparation:</strong> Downloaded and organized the IIIT-Oxford Pets Dataset for use with SageMaker's semantic segmentation algorithm. Prepared the data with the correct folder structure, splitting it into training and validation sets.</li>
+                        <li><strong>Notebook Instance:</strong> Created and configured a SageMaker notebook instance to handle model training and deployment.</li>
+                        <li><strong>Data Upload to S3:</strong> Set up an S3 bucket and uploaded the dataset for access by the SageMaker environment.</li>
+                        <li><strong>Estimator and Hyperparameters:</strong> Created a SageMaker estimator, specifying training instances and setting up hyperparameters for semantic segmentation.</li>
+                        <li><strong>Model Training and Deployment:</strong> Trained a semantic segmentation model using SageMaker's built-in algorithms. Deployed the model to an endpoint for real-time inference.</li>
+                        <li><strong>Inference and Endpoint Management:</strong> Conducted inference with the deployed model and cleaned up resources by deleting the endpoint post-inference.</li>
                     </ul>
                 </div>
             </div>
