@@ -8,12 +8,27 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  unit-tests:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install test dependencies
+      run: |
+        cd tests
+        pip install -r requirements.txt
+    
+    - name: Run Unit Tests
+      run: |
+        cd tests
+        python run_tests.py unit
     
     - name: Test HTML validity
       run: |
@@ -44,8 +59,31 @@ jobs:
           echo "❌ Lambda function missing"
           exit 1
         fi
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    needs: unit-tests
     
-    - name: Test API endpoint (if accessible)
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install test dependencies
+      run: |
+        cd tests
+        pip install -r requirements.txt
+    
+    - name: Run Integration Tests
+      run: |
+        cd tests
+        python run_tests.py integration
+    
+    - name: Test API endpoint
       run: |
         echo "Testing API endpoint..."
-        curl -f https://5xwzjw1xh6.execute-api.us-east-1.amazonaws.com/prod/visitors || echo "API test skipped (may require authentication)"
+        curl -f https://5xwzjw1xh6.execute-api.us-east-1.amazonaws.com/prod/visitors || echo "API test failed"
