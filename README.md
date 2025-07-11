@@ -35,7 +35,6 @@ A serverless resume website built on AWS as part of the Cloud Resume Challenge.
 ## 🛠️ Local Development
 
 ### Prerequisites
-- AWS CLI configured
 - Terraform installed
 - Node.js (for testing)
 
