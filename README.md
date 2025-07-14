@@ -35,7 +35,6 @@ A serverless resume website built on AWS as part of the Cloud Resume Challenge.
 ## 🛠️ Local Development
 
 ### Prerequisites
-- AWS CLI configured
 - Terraform installed
 - Node.js (for testing)
 
@@ -121,7 +120,7 @@ curl https://5xwzjw1xh6.execute-api.us-east-1.amazonaws.com/prod/visitors
 
 ## 📝 Blog Post
 
-Read about my experience building this project: [Blog Post Link]
+Read about my experience building this project: [[Blog Post Link](https://www.linkedin.com/pulse/my-cloud-resume-challenge-journey-building-serverless-anas-tarek-dy6ic/)]
 
 ## 🤝 Connect
 
