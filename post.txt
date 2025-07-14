@@ -1,0 +1,44 @@
+🎉 Just completed the Cloud Resume Challenge!
+
+After earning my AWS Cloud Practitioner certification, I built a complete serverless resume website to put my skills into practice.
+
+🏗️ What I built:
+✅ Responsive website with real-time visitor counter
+✅ Serverless backend (Lambda + API Gateway + DynamoDB)
+✅ Global CDN with custom domain & SSL
+✅ Infrastructure as Code with Terraform
+✅ Full CI/CD pipeline with automated testing
+✅ Mobile-friendly design
+
+📊 Results:
+• Load time: < 2 seconds globally
+• Cost: < $2/month
+• 99.9% uptime
+
+🌐 Check it out: https://anas-webiste.com
+
+💻 Source code: https://github.com/Anas990978/cloud-resume-challenge
+
+🏆 My certification: https://www.credly.com/badges/d0969e30-3eaa-4dba-913b-5c68a5b9efdd/public_url
+
+This project taught me so much about real-world cloud architecture, DevOps practices, and serverless computing. Ready to take on cloud engineering challenges!
+
+#CloudResumeChallenge #AWS #CloudComputing #Serverless #DevOps #WebDevelopment #CloudEngineering
+
+📸 Add These Images:
+Screenshot of your website homepage
+
+Architecture diagram (if you have it)
+
+AWS certification badge screenshot
+
+🎯 Why This Works:
+✅ Visual first - people see your website
+
+✅ Quick read - under 30 seconds
+
+✅ All key links included
+
+✅ Professional metrics shown
+
+✅ Call to action for engagement

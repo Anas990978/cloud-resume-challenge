@@ -2,20 +2,24 @@
 
 ## Introduction
 
-As a cloud-focused student developer with AWS and Huawei Cloud certifications, I decided to take on the famous **Cloud Resume Challenge** to showcase my skills and gain hands-on experience with real-world cloud architecture. This challenge, created by Forrest Brazeal, is designed to help aspiring cloud professionals build practical experience by creating a resume website using various cloud services.
+As an **AWS Certified Cloud Practitioner** and cloud-focused student developer, I decided to take on the famous **Cloud Resume Challenge** to showcase my skills and gain hands-on experience with real-world cloud architecture. Having already earned my AWS Cloud Practitioner certification, I was ready to put my theoretical knowledge into practice with a real-world project. This challenge, created by Forrest Brazeal, is designed to help aspiring cloud professionals build practical experience by creating a resume website using various cloud services.
 
 In this post, I'll walk you through my journey, the challenges I faced, and the lessons I learned while building my serverless resume website.
 
 ## What is the Cloud Resume Challenge?
 
 The Cloud Resume Challenge is a hands-on project that involves:
+- **Prerequisites**: AWS Cloud Practitioner certification ✅
 - Building a resume website using HTML, CSS, and JavaScript
 - Hosting it on cloud infrastructure
 - Implementing a visitor counter with serverless functions
 - Using Infrastructure as Code (IaC)
 - Setting up CI/CD pipelines
+- Writing a blog post about the experience
 
 ## My Architecture
+
+![Cloud Resume Challenge Architecture](images/architecture-diagram.png)
 
 Here's the AWS architecture I implemented:
 
@@ -485,6 +489,7 @@ jobs:
 - **Cost**: < $2/month for hosting and services
 
 ### Skills Demonstrated:
+- ✅ **AWS Certified Cloud Practitioner** (Foundation knowledge)
 - ✅ Frontend Development (HTML/CSS/JavaScript)
 - ✅ Serverless Computing (Lambda)
 - ✅ NoSQL Databases (DynamoDB)
@@ -524,7 +529,7 @@ This project has strengthened my confidence in cloud technologies and prepared m
 
 ## Resources and Links
 
-- **Live Website**: [https://anas-webiste.com](https://anas-webiste.com)
+- **Live Website**: [https://anas-webiste.com](https://anas-webiste.com) (Mobile-friendly with real-time visitor counter)
 - **GitHub Repository**: [https://github.com/Anas990978/cloud-resume-challenge](https://github.com/Anas990978/cloud-resume-challenge)
 - **Original Challenge**: [Cloud Resume Challenge](https://cloudresumechallenge.dev/)
 - **My LinkedIn**: [https://www.linkedin.com/in/anastarek](https://www.linkedin.com/in/anastarek)
