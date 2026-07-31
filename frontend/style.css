@@ -319,12 +319,27 @@ body {
     cursor: pointer;
 }
 
-.cert-extra {
+.cert-row-extra {
+    display: none;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-top: 15px;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cert-row-extra::-webkit-scrollbar {
     display: none;
 }
 
-.cert-category.expanded .cert-extra {
-    display: block;
+.cert-category.expanded .cert-row-extra {
+    display: flex;
+    max-height: 300px;
+    opacity: 1;
 }
 
 .cert-show-more {
