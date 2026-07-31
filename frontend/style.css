@@ -319,6 +319,41 @@ body {
     cursor: pointer;
 }
 
+.cert-extra {
+    display: none;
+}
+
+.cert-category.expanded .cert-extra {
+    display: block;
+}
+
+.cert-show-more {
+    display: block;
+    margin: 12px auto 0;
+    padding: 8px 24px;
+    background: transparent;
+    border: 1px solid #129990;
+    border-radius: 25px;
+    color: #00C4B4;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cert-show-more:hover {
+    background: rgba(0, 196, 180, 0.1);
+}
+
+.cert-show-more span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.cert-category.expanded .cert-show-more span {
+    transform: rotate(90deg);
+}
+
 .tool-icon-circle.cert-photo {
     border-radius: 12px;
     width: 140px;
