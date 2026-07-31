@@ -705,13 +705,86 @@ footer a:hover {
         opacity: 0;
         visibility: hidden;
     }
-    
+
     .tool-card:hover {
         transform: none;
     }
-    
+
     .nav-icon:active,
     .tool-card:active {
         transform: scale(0.95);
     }
+}
+
+/* ============================================
+   Techy / Terminal Theme Additions
+   ============================================ */
+
+/* Subtle grid overlay on the hero section */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(18, 153, 144, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 153, 144, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Terminal prompt motif on the subtitle */
+.prompt {
+    font-family: 'JetBrains Mono', monospace;
+    color: #00C4B4;
+    margin-right: 8px;
+}
+
+/* Monospace styling for dates and tech stack labels */
+.resume-date,
+.resume-details p strong {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.resume-details p strong {
+    color: #00C4B4;
+    font-weight: 500;
+}
+
+/* Teal glow on hover for cards */
+.tool-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tool-card:hover {
+    box-shadow: 0 0 20px rgba(0, 196, 180, 0.35), 0 0 4px rgba(18, 153, 144, 0.6);
+    border-color: #00C4B4;
+}
+
+/* Teal glow on resume entry circles */
+.resume-circle {
+    box-shadow: 0 0 8px rgba(0, 196, 180, 0.6);
+    transition: box-shadow 0.3s ease;
+}
+
+.resume-entry:hover .resume-circle {
+    box-shadow: 0 0 14px rgba(0, 196, 180, 0.9);
+}
+
+/* Glow on nav icon hover/active */
+.nav-icon.active,
+.nav-icon:hover {
+    box-shadow: 0 0 12px rgba(0, 196, 180, 0.5);
+}
+
+/* Monospace touch on section headings for a techy feel */
+.section h2::before {
+    content: '// ';
+    font-family: 'JetBrains Mono', monospace;
+    color: #00C4B4;
+    font-size: 0.6em;
+    vertical-align: middle;
 }
