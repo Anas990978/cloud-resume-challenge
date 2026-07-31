@@ -25,7 +25,7 @@
     <link rel="icon" type="image/png" href="images/my-photo.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2026073101">
+    <link rel="stylesheet" href="style.css?v=2026073102">
 </head>
 <body>
     <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
@@ -628,19 +628,55 @@
         <section id="contact" class="section">
             <h2>Contact</h2>
             <p class="section-intro">Got a question or want to work together? Feel free to reach out.</p>
-            <div class="contact-links">
-                <a href="mailto:anastarek10777@gmail.com" class="contact-item">
-                    <img src="images/email.png" alt="Email">
-                    <span>anastarek10777@gmail.com</span>
-                </a>
-                <a href="https://www.linkedin.com/in/anastarek" target="_blank" class="contact-item">
-                    <img src="images/linkedin.png" alt="LinkedIn">
-                    <span>linkedin.com/in/anastarek</span>
-                </a>
-                <a href="https://github.com/Anas990978" target="_blank" class="contact-item">
-                    <img src="images/github.png" alt="GitHub">
-                    <span>github.com/Anas990978</span>
-                </a>
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-detail">
+                        <img src="images/email.png" alt="Email">
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:anastarek10777@gmail.com">anastarek10777@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <img src="images/linkedin.png" alt="LinkedIn">
+                        <div>
+                            <span class="contact-label">LinkedIn</span>
+                            <a href="https://www.linkedin.com/in/anastarek" target="_blank">linkedin.com/in/anastarek</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <img src="images/github.png" alt="GitHub">
+                        <div>
+                            <span class="contact-label">GitHub</span>
+                            <a href="https://github.com/Anas990978" target="_blank">github.com/Anas990978</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info-card">
+                    <h3>Location & Availability</h3>
+                    <div class="contact-detail">
+                        <span class="contact-icon">&#127758;</span>
+                        <div>
+                            <span class="contact-label">Location</span>
+                            <span>Alexandria, Egypt</span>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="contact-icon">&#128188;</span>
+                        <div>
+                            <span class="contact-label">Status</span>
+                            <span class="status-available">Open to opportunities</span>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="contact-icon">&#128172;</span>
+                        <div>
+                            <span class="contact-label">Languages</span>
+                            <span>Arabic, English, German</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -705,14 +741,20 @@
 
             window.addEventListener('scroll', () => {
                 let found = false;
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
-                    const sectionHeight = section.offsetHeight;
-                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                        currentSection = section.getAttribute('id');
-                        found = true;
-                    }
-                });
+                // If scrolled to bottom, activate last section (Contact)
+                if ((window.innerHeight + Math.ceil(window.scrollY)) >= document.documentElement.scrollHeight) {
+                    currentSection = sections[sections.length - 1].getAttribute('id');
+                    found = true;
+                } else {
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop - 100;
+                        const sectionHeight = section.offsetHeight;
+                        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                            currentSection = section.getAttribute('id');
+                            found = true;
+                        }
+                    });
+                }
 
                 if (!found && window.scrollY < sections[0].offsetTop - 100) {
                     currentSection = 'home';

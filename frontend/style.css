@@ -659,43 +659,80 @@ body {
 }
 
 /* Contact Section */
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 900px;
+    margin: 30px auto 0;
 }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #D3D7D4;
-    text-decoration: none;
-    font-size: 1em;
-    padding: 15px 25px;
+.contact-info-card {
     background-color: rgba(28, 37, 38, 0.7);
     border: 1px solid #129990;
     border-radius: 12px;
-    transition: all 0.3s ease;
+    padding: 30px;
 }
 
-.contact-item:hover {
-    background-color: rgba(0, 196, 180, 0.1);
-    transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(0, 196, 180, 0.2);
+.contact-info-card h3 {
+    color: #00C4B4;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    font-family: 'JetBrains Mono', monospace;
 }
 
-.contact-item img {
+.contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.contact-detail:last-child {
+    margin-bottom: 0;
+}
+
+.contact-detail img {
     width: 28px;
     height: 28px;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
+    filter: grayscale(50%);
 }
 
-.contact-item:hover img {
-    filter: grayscale(0%);
+.contact-icon {
+    font-size: 1.5em;
+    width: 28px;
+    text-align: center;
+}
+
+.contact-label {
+    display: block;
+    font-size: 0.8em;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.contact-detail a {
+    color: #D3D7D4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-detail a:hover {
+    color: #00C4B4;
+}
+
+.status-available {
+    color: #00C4B4;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Scroll-to-top Button */
