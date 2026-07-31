@@ -1011,9 +1011,5 @@ footer a:hover {
 
 /* Monospace touch on section headings for a techy feel */
 .section h2::before {
-    content: '// ';
-    font-family: 'JetBrains Mono', monospace;
-    color: #00C4B4;
-    font-size: 0.6em;
-    vertical-align: middle;
+    content: none;
 }
