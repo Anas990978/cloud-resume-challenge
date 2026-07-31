@@ -345,6 +345,112 @@ body {
 
 
 
+/* Projects Section — Alternating Rows */
+.projects-list {
+    max-width: 900px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.project-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background-color: rgba(28, 37, 38, 0.5);
+    border: 1px solid #129990;
+    border-radius: 12px;
+    padding: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(0, 196, 180, 0.15);
+}
+
+.project-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.project-row.reverse .project-info {
+    text-align: right;
+}
+
+.project-row.reverse .project-tags {
+    justify-content: flex-end;
+}
+
+.project-icon {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    border-radius: 50%;
+    background-color: rgba(18, 153, 144, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-info {
+    flex: 1;
+}
+
+.project-info h4 {
+    font-size: 1.4em;
+    margin-bottom: 4px;
+}
+
+.project-info h4 a {
+    color: #00C4B4;
+    text-decoration: none;
+}
+
+.project-info h4 a:hover {
+    text-decoration: underline;
+}
+
+.project-info p {
+    color: #D3D7D4;
+    font-size: 0.95em;
+    margin-bottom: 8px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.tag {
+    background-color: rgba(0, 196, 180, 0.15);
+    color: #00C4B4;
+    font-size: 0.8em;
+    padding: 4px 12px;
+    border-radius: 99px;
+    border: 1px solid rgba(0, 196, 180, 0.3);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+@media (max-width: 768px) {
+    .project-row,
+    .project-row.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+    .project-row.reverse .project-info {
+        text-align: center;
+    }
+    .project-row.reverse .project-tags {
+        justify-content: center;
+    }
+    .project-tags {
+        justify-content: center;
+    }
+}
+
 /* Visitors Section Styling */
 .visitor-counter {
     text-align: center;
