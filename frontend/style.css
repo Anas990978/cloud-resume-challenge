@@ -789,6 +789,65 @@ body {
     transform: translateY(0);
 }
 
+/* Tilt hover on cards */
+.tool-card {
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+/* Staggered entrance */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stagger-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Glow pulse on active nav */
+@keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(0, 196, 180, 0.25); }
+    50% { box-shadow: 0 0 20px rgba(0, 196, 180, 0.5), 0 0 4px rgba(0, 196, 180, 0.3); }
+}
+
+.nav-icon.active {
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Parallax hero */
+.hero-section {
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: -50px;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+    z-index: 0;
+}
+
+/* Timeline draw-in */
+.timeline::before {
+    transition: height 1.5s ease;
+}
+
+.timeline-dot {
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.timeline-dot.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
 /* Footer Styling */
 footer {
     text-align: center;

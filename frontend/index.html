@@ -25,7 +25,7 @@
     <link rel="icon" type="image/png" href="images/my-photo.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2026073104">
+    <link rel="stylesheet" href="style.css?v=2026073105">
 </head>
 <body>
     <div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
@@ -835,5 +835,148 @@
             sections.forEach(s => observer.observe(s));
         });
     </script>
+
+    <!-- 1. Tilt hover on cards -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.tool-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const r = card.getBoundingClientRect();
+                    const x = (e.clientX - r.left) / r.width - 0.5;
+                    const y = (e.clientY - r.top) / r.height - 0.5;
+                    card.style.transform = 'rotateY(' + (x * 15) + 'deg) rotateX(' + (-y * 15) + 'deg) scale(1.03)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+                });
+            });
+        });
+    </script>
+
+    <!-- 2. Staggered entrance for cards -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.tool-cards').forEach(container => {
+                const cards = container.querySelectorAll('.tool-card');
+                cards.forEach(c => c.classList.add('stagger-item'));
+
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const items = entry.target.querySelectorAll('.stagger-item');
+                            items.forEach((item, i) => {
+                                setTimeout(() => item.classList.add('visible'), i * 100);
+                            });
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+
+                obs.observe(container);
+            });
+        });
+    </script>
+
+    <!-- 3. Counter count-up animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const counterEl = document.getElementById('visitor-count');
+            let counted = false;
+
+            function animateCount(target) {
+                if (counted) return;
+                counted = true;
+                let current = 0;
+                const duration = 1500;
+                const steps = 60;
+                const increment = target / steps;
+                const interval = duration / steps;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counterEl.textContent = Math.round(current).toLocaleString();
+                }, interval);
+            }
+
+            const origUpdate = window.updateVisitorCount;
+            const origFetch = window.fetch;
+
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && counterEl.textContent !== 'Loading...') {
+                        const val = parseInt(counterEl.textContent.replace(/,/g, ''));
+                        if (!isNaN(val) && !counted) {
+                            counterEl.textContent = '0';
+                            animateCount(val);
+                        }
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            obs.observe(counterEl.closest('.visitor-counter'));
+
+            const origSetText = Object.getOwnPropertyDescriptor(Node.prototype, 'textContent').set;
+            let apiValue = null;
+            const checkInterval = setInterval(() => {
+                const text = counterEl.textContent;
+                if (text !== 'Loading...' && text !== '0' && !counted) {
+                    apiValue = parseInt(text.replace(/,/g, ''));
+                    if (!isNaN(apiValue)) {
+                        counterEl.textContent = '0';
+                        animateCount(apiValue);
+                        clearInterval(checkInterval);
+                    }
+                }
+            }, 200);
+
+            setTimeout(() => clearInterval(checkInterval), 10000);
+        });
+    </script>
+
+    <!-- 4. Timeline draw-in -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.timeline').forEach(timeline => {
+                const dots = timeline.querySelectorAll('.timeline-dot');
+                const line = timeline.querySelector('::before') || timeline;
+
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            timeline.classList.add('draw-in');
+                            dots.forEach((dot, i) => {
+                                setTimeout(() => dot.classList.add('visible'), 300 + i * 300);
+                            });
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                obs.observe(timeline);
+            });
+        });
+    </script>
+
+    <!-- 5. Parallax hero background -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hero = document.querySelector('.hero-section');
+            if (hero) {
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.scrollY;
+                    if (scrolled < window.innerHeight) {
+                        hero.style.backgroundPositionY = (scrolled * 0.4) + 'px';
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- 6. Glow pulse handled via CSS on .nav-icon.active -->
 </body>
 </html>
