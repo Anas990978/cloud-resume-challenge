@@ -25,7 +25,7 @@
     <link rel="icon" type="image/png" href="images/my-photo.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2026073107">
+    <link rel="stylesheet" href="style.css?v=2026073108">
 </head>
 <body>
     <div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
@@ -284,214 +284,108 @@
             <h2>Certificates</h2>
             <p class="section-intro">Throughout my time in University and with self-study I was able to achieve some of the following credentials. Feel free to verify my certifications or view my badges on Credly.</p>
 
-            <div class="cert-tabs">
-                <button class="cert-tab active" onclick="filterCerts('all')">All</button>
-                <button class="cert-tab" onclick="filterCerts('cloud')">Cloud</button>
-                <button class="cert-tab" onclick="filterCerts('devops')">DevOps</button>
-                <button class="cert-tab" onclick="filterCerts('other')">Other</button>
+            <div class="cert-category">
+                <h3 class="cert-category-title">Cloud Certifications</h3>
+                <div class="cert-carousel">
+                    <div class="tool-card" onclick="window.open('https://www.credly.com/badges/d0969e30-3eaa-4dba-913b-5c68a5b9efdd/public_url','_blank')">
+                        <div class="tool-icon-circle"><img src="images/aws-certified-cloud-practitioner.png" alt="AWS CCP"></div>
+                        <div class="tool-details"><h4>AWS Certified Cloud Practitioner</h4></div>
+                    </div>
+                    <div class="tool-card" onclick="window.open('https://www.credly.com/badges/0bf771d5-4f64-4bb5-81d0-70a3a5582a56/public_url','_blank')">
+                        <div class="tool-icon-circle"><img src="images/aws-cloud-quest-cloud-practitioner.png" alt="AWS Cloud Quest"></div>
+                        <div class="tool-details"><h4>AWS Cloud Quest Cloud Practitioner</h4></div>
+                    </div>
+                    <div class="tool-card" onclick="window.open('https://www.credly.com/badges/bbf1922a-1572-41d7-b2c8-fd09c8dfbaa6/public_url','_blank')">
+                        <div class="tool-icon-circle"><img src="images/aws-educate-web-builder.png" alt="AWS Web Builder"></div>
+                        <div class="tool-details"><h4>AWS Educate Web Builder</h4></div>
+                    </div>
+                    <div class="tool-card" onclick="window.open('images/hwawei-certificate.png','_blank')">
+                        <div class="tool-icon-circle cert-photo"><img src="images/hwawei-certificate.png" alt="HCCDA"></div>
+                        <div class="tool-details"><h4>Huawei HCCDA</h4></div>
+                    </div>
+                    <div class="tool-card" onclick="window.open('https://www.credly.com/go/1MFEh95X','_blank')">
+                        <div class="tool-icon-circle"><img src="images/aws-academy-graduate-cloud-architecting-training-ba.png" alt="Cloud Architecting"></div>
+                        <div class="tool-details"><h4>AWS Academy: Cloud Architecting</h4></div>
+                    </div>
+                    <div class="tool-card" onclick="window.open('https://www.credly.com/go/eLz7jfAI','_blank')">
+                        <div class="tool-icon-circle"><img src="images/aws-academy-graduate-cloud-foundations-training-bad.png" alt="Cloud Foundations"></div>
+                        <div class="tool-details"><h4>AWS Academy: Cloud Foundations</h4></div>
+                    </div>
+                    <div class="tool-card" onclick="window.open('https://www.credly.com/go/UIW55gwM','_blank')">
+                        <div class="tool-icon-circle"><img src="images/aws-academy-graduate-cloud-security-foundations-tra.png" alt="Cloud Security"></div>
+                        <div class="tool-details"><h4>AWS Academy: Cloud Security</h4></div>
+                    </div>
+                    <div class="tool-card" onclick="window.open('images/OCI25FNDCFA.jpeg','_blank')">
+                        <div class="tool-icon-circle cert-photo"><img src="images/OCI25FNDCFA.jpeg" alt="OCI"></div>
+                        <div class="tool-details"><h4>Oracle OCI 2025 Foundations</h4></div>
+                    </div>
+                    <div class="tool-card" onclick="window.open('images/hwawei-certificate.png','_blank')">
+                        <div class="tool-icon-circle cert-photo"><img src="images/hwawei-certificate.png" alt="HCCDP"></div>
+                        <div class="tool-details"><h4>Huawei HCCDP – Solution Arch.</h4></div>
+                    </div>
+                    <div class="tool-card" onclick="window.open('https://www.credly.com/badges/bbf1922a-1572-41d7-b2c8-fd09c8dfbaa6/public_url','_blank')">
+                        <div class="tool-icon-circle"><img src="images/aws-educate-web-builder.png" alt="Web App Dev"></div>
+                        <div class="tool-details"><h4>AWS Educate Web App Dev</h4></div>
+                    </div>
+                    <div class="tool-card" onclick="window.open('images/Screenshot 2026-07-31 160900.png','_blank')">
+                        <div class="tool-icon-circle cert-photo"><img src="images/Screenshot 2026-07-31 160900.png" alt="Serverless"></div>
+                        <div class="tool-details"><h4>Architecting Serverless Apps</h4></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="tool-cards" id="cert-grid">
-                <!-- CLOUD -->
-                <div class="tool-card cert-item cloud" onclick="window.open('https://www.credly.com/badges/d0969e30-3eaa-4dba-913b-5c68a5b9efdd/public_url','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/aws-certified-cloud-practitioner.png" alt="AWS Certified Cloud Practitioner">
+            <div class="cert-category">
+                <h3 class="cert-category-title">DevOps & Linux</h3>
+                <div class="cert-carousel">
+                    <div class="tool-card" onclick="window.open('images/nti devops accelerator.jfif','_blank')">
+                        <div class="tool-icon-circle cert-photo"><img src="images/nti devops accelerator.jfif" alt="NTI"></div>
+                        <div class="tool-details"><h4>Cloud DevOps Accelerator – NTI</h4></div>
                     </div>
-                    <div class="tool-details">
-                        <h4>AWS Certified Cloud Practitioner</h4>
+                    <div class="tool-card" onclick="window.open('https://coursera.org/verify/FUGU88ZLOAB3','_blank')">
+                        <div class="tool-icon-circle"><img src="images/terraform.png" alt="Terraform"></div>
+                        <div class="tool-details"><h4>Introduction to Terraform</h4></div>
                     </div>
-                </div>
-
-                <div class="tool-card cert-item cloud" onclick="window.open('https://www.credly.com/badges/0bf771d5-4f64-4bb5-81d0-70a3a5582a56/public_url','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/aws-cloud-quest-cloud-practitioner.png" alt="AWS Cloud Quest">
+                    <div class="tool-card" onclick="window.open('images/red-hat-system-administration-i-rh124-rha-ver-9-3.png','_blank')">
+                        <div class="tool-icon-circle"><img src="images/red-hat-system-administration-i-rh124-rha-ver-9-3.png" alt="RH124"></div>
+                        <div class="tool-details"><h4>Red Hat Sys Admin I (RH124)</h4></div>
                     </div>
-                    <div class="tool-details">
-                        <h4>AWS Cloud Quest Cloud Practitioner Badge</h4>
+                    <div class="tool-card" onclick="window.open('images/red-hat-system-administration-ii-rh134-rha-ver-9-3.png','_blank')">
+                        <div class="tool-icon-circle"><img src="images/red-hat-system-administration-ii-rh134-rha-ver-9-3.png" alt="RH134"></div>
+                        <div class="tool-details"><h4>Red Hat Sys Admin II (RH134)</h4></div>
                     </div>
-                </div>
-
-                <div class="tool-card cert-item cloud" onclick="window.open('https://www.credly.com/badges/bbf1922a-1572-41d7-b2c8-fd09c8dfbaa6/public_url','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/aws-educate-web-builder.png" alt="AWS Educate Web Builder">
+                    <div class="tool-card" onclick="window.open('images/red-hat-enterprise-linux-automation-with-ansible-rh.2.png','_blank')">
+                        <div class="tool-icon-circle"><img src="images/red-hat-enterprise-linux-automation-with-ansible-rh.2.png" alt="RH294"></div>
+                        <div class="tool-details"><h4>RHEL Automation with Ansible</h4></div>
                     </div>
-                    <div class="tool-details">
-                        <h4>AWS Educate Web Builder Badge</h4>
+                    <div class="tool-card" onclick="window.open('images/red-hat-openshift-administration-i-operating-a-prod.5.png','_blank')">
+                        <div class="tool-icon-circle"><img src="images/red-hat-openshift-administration-i-operating-a-prod.5.png" alt="OpenShift Admin"></div>
+                        <div class="tool-details"><h4>OpenShift Administration I</h4></div>
                     </div>
-                </div>
-
-                <div class="tool-card cert-item cloud" onclick="window.open('images/hwawei-certificate.png','_blank')">
-                    <div class="tool-icon-circle cert-photo">
-                        <img src="images/hwawei-certificate.png" alt="HCCDA">
-                    </div>
-                    <div class="tool-details">
-                        <h4>Huawei Certified Developer Associate</h4>
-                        <p>Certificate ID: HWENDCTEDA008864</p>
+                    <div class="tool-card" onclick="window.open('images/red-hat-openshift-development-i-introduction-to-con.2.png','_blank')">
+                        <div class="tool-icon-circle"><img src="images/red-hat-openshift-development-i-introduction-to-con.2.png" alt="OpenShift Dev"></div>
+                        <div class="tool-details"><h4>OpenShift Development I</h4></div>
                     </div>
                 </div>
+            </div>
 
-                <div class="tool-card cert-item cloud" onclick="window.open('https://www.credly.com/go/1MFEh95X','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/aws-academy-graduate-cloud-architecting-training-ba.png" alt="AWS Academy Cloud Architecting">
+            <div class="cert-category">
+                <h3 class="cert-category-title">Achievements & Other</h3>
+                <div class="cert-carousel">
+                    <div class="tool-card" onclick="window.open('https://intranet.alxswe.com/certificates/9f7ZTPREpM','_blank')">
+                        <div class="tool-icon-circle cert-photo"><img src="images/66-alx-aice-ai-career-essentials-certificate-anas-tarek.png" alt="ALX AI"></div>
+                        <div class="tool-details"><h4>ALX AI Career Essentials</h4></div>
                     </div>
-                    <div class="tool-details">
-                        <h4>AWS Academy Graduate: Cloud Architecting</h4>
+                    <div class="tool-card" onclick="window.open('images/Screenshot 2026-07-31 160658.png','_blank')">
+                        <div class="tool-icon-circle cert-photo"><img src="images/Screenshot 2026-07-31 160658.png" alt="KANZ AI"></div>
+                        <div class="tool-details"><h4>KANZ AI Workshop</h4></div>
                     </div>
-                </div>
-
-                <div class="tool-card cert-item cloud" onclick="window.open('https://www.credly.com/go/eLz7jfAI','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/aws-academy-graduate-cloud-foundations-training-bad.png" alt="AWS Academy Cloud Foundations">
+                    <div class="tool-card" onclick="window.open('images/Screenshot 2026-07-31 160933.png','_blank')">
+                        <div class="tool-icon-circle cert-photo"><img src="images/Screenshot 2026-07-31 160933.png" alt="Guinness"></div>
+                        <div class="tool-details"><h4>Guinness World Record Holder</h4></div>
                     </div>
-                    <div class="tool-details">
-                        <h4>AWS Academy Graduate: Cloud Foundations</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item cloud" onclick="window.open('https://www.credly.com/go/UIW55gwM','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/aws-academy-graduate-cloud-security-foundations-tra.png" alt="AWS Academy Cloud Security">
-                    </div>
-                    <div class="tool-details">
-                        <h4>AWS Academy Graduate: Cloud Security Foundations</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item cloud" onclick="window.open('images/OCI25FNDCFA.jpeg','_blank')">
-                    <div class="tool-icon-circle cert-photo">
-                        <img src="images/OCI25FNDCFA.jpeg" alt="OCI Foundations Associate">
-                    </div>
-                    <div class="tool-details">
-                        <h4>Oracle Cloud Infrastructure 2025 Foundations Associate</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item cloud" onclick="window.open('images/hwawei-certificate.png','_blank')">
-                    <div class="tool-icon-circle cert-photo">
-                        <img src="images/hwawei-certificate.png" alt="HCCDP">
-                    </div>
-                    <div class="tool-details">
-                        <h4>HCCDP – Solution Architectures</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item cloud" onclick="window.open('https://www.credly.com/badges/bbf1922a-1572-41d7-b2c8-fd09c8dfbaa6/public_url','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/aws-educate-web-builder.png" alt="AWS Educate Web App Dev">
-                    </div>
-                    <div class="tool-details">
-                        <h4>AWS Educate Web App Dev Builder</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item cloud" onclick="window.open('images/Screenshot 2026-07-31 160900.png','_blank')">
-                    <div class="tool-icon-circle cert-photo">
-                        <img src="images/Screenshot 2026-07-31 160900.png" alt="Architecting Serverless">
-                    </div>
-                    <div class="tool-details">
-                        <h4>Architecting Serverless Applications</h4>
-                    </div>
-                </div>
-
-                <!-- DEVOPS -->
-                <div class="tool-card cert-item devops" onclick="window.open('images/nti devops accelerator.jfif','_blank')">
-                    <div class="tool-icon-circle cert-photo">
-                        <img src="images/nti devops accelerator.jfif" alt="NTI DevOps">
-                    </div>
-                    <div class="tool-details">
-                        <h4>Cloud DevOps Accelerator – NTI</h4>
-                        <p>540 hours · Score: 97%</p>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item devops" onclick="window.open('https://coursera.org/verify/FUGU88ZLOAB3','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/terraform.png" alt="Terraform">
-                    </div>
-                    <div class="tool-details">
-                        <h4>Introduction to Terraform</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item devops" onclick="window.open('images/red-hat-system-administration-i-rh124-rha-ver-9-3.png','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/red-hat-system-administration-i-rh124-rha-ver-9-3.png" alt="RH124">
-                    </div>
-                    <div class="tool-details">
-                        <h4>Red Hat System Administration I (RH124)</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item devops" onclick="window.open('images/red-hat-system-administration-ii-rh134-rha-ver-9-3.png','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/red-hat-system-administration-ii-rh134-rha-ver-9-3.png" alt="RH134">
-                    </div>
-                    <div class="tool-details">
-                        <h4>Red Hat System Administration II (RH134)</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item devops" onclick="window.open('images/red-hat-enterprise-linux-automation-with-ansible-rh.2.png','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/red-hat-enterprise-linux-automation-with-ansible-rh.2.png" alt="RH294">
-                    </div>
-                    <div class="tool-details">
-                        <h4>RHEL Automation with Ansible (RH294)</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item devops" onclick="window.open('images/red-hat-openshift-administration-i-operating-a-prod.5.png','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/red-hat-openshift-administration-i-operating-a-prod.5.png" alt="OpenShift Admin">
-                    </div>
-                    <div class="tool-details">
-                        <h4>Red Hat OpenShift Administration I</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item devops" onclick="window.open('images/red-hat-openshift-development-i-introduction-to-con.2.png','_blank')">
-                    <div class="tool-icon-circle">
-                        <img src="images/red-hat-openshift-development-i-introduction-to-con.2.png" alt="OpenShift Dev">
-                    </div>
-                    <div class="tool-details">
-                        <h4>Red Hat OpenShift Development I</h4>
-                    </div>
-                </div>
-
-                <!-- OTHER -->
-                <div class="tool-card cert-item other" onclick="window.open('https://intranet.alxswe.com/certificates/9f7ZTPREpM','_blank')">
-                    <div class="tool-icon-circle cert-photo">
-                        <img src="images/66-alx-aice-ai-career-essentials-certificate-anas-tarek.png" alt="ALX AI">
-                    </div>
-                    <div class="tool-details">
-                        <h4>ALX AI Career Essentials</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item other" onclick="window.open('images/Screenshot 2026-07-31 160658.png','_blank')">
-                    <div class="tool-icon-circle cert-photo">
-                        <img src="images/Screenshot 2026-07-31 160658.png" alt="KANZ AI">
-                    </div>
-                    <div class="tool-details">
-                        <h4>KANZ AI Workshop</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item other" onclick="window.open('images/Screenshot 2026-07-31 160933.png','_blank')">
-                    <div class="tool-icon-circle cert-photo">
-                        <img src="images/Screenshot 2026-07-31 160933.png" alt="Guinness">
-                    </div>
-                    <div class="tool-details">
-                        <h4>Guinness World Record Holder</h4>
-                    </div>
-                </div>
-
-                <div class="tool-card cert-item other" onclick="window.open('images/photo_2025-09-09_01-01-45.jpg','_blank')">
-                    <div class="tool-icon-circle cert-photo">
-                        <img src="images/photo_2025-09-09_01-01-45.jpg" alt="Capstone Prize">
-                    </div>
-                    <div class="tool-details">
-                        <h4>CSS Best Capstone Project Prize</h4>
+                    <div class="tool-card" onclick="window.open('images/photo_2025-09-09_01-01-45.jpg','_blank')">
+                        <div class="tool-icon-circle cert-photo"><img src="images/photo_2025-09-09_01-01-45.jpg" alt="Capstone"></div>
+                        <div class="tool-details"><h4>CSS Best Capstone Project Prize</h4></div>
                     </div>
                 </div>
             </div>
@@ -825,24 +719,6 @@
 
             sections.forEach(s => observer.observe(s));
         });
-    </script>
-
-    <!-- Certificate tab filter -->
-    <script>
-        function filterCerts(category) {
-            document.querySelectorAll('.cert-tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-
-            const items = document.querySelectorAll('.cert-item');
-            items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.classList.remove('hidden');
-                    item.style.position = '';
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-        }
     </script>
 
     <!-- Animations -->
