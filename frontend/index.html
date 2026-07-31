@@ -25,9 +25,10 @@
     <link rel="icon" type="image/png" href="images/my-photo.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2026073102">
+    <link rel="stylesheet" href="style.css?v=2026073103">
 </head>
 <body>
+    <div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
     <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
         <span></span>
         <span></span>
@@ -51,8 +52,8 @@
                 <h1>Anas Tarek</h1>
                 <p class="subtitle"><span class="prompt">&gt;</span> <span id="typed-text"></span><span class="cursor">|</span></p>
                 <div class="social-icons">
-                    <a href="https://github.com/Anas990978"><img src="images/github.png" alt="GitHub"></a>
-                    <a href="https://www.linkedin.com/in/anastarek"><img src="images/linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://github.com/Anas990978" target="_blank"><img src="images/github.png" alt="GitHub"></a>
+                    <a href="https://www.linkedin.com/in/anastarek" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
                     <a href="mailto:anastarek10777@gmail.com"><img src="images/email.png" alt="Email"></a>
                 </div>
                 <div id="visitor-counter" class="visitor-counter">
@@ -67,7 +68,7 @@
                 <div class="about-text">
                     <h3>Cloud & DevOps Engineer</h3>
                     <p>AWS-certified Cloud & DevOps Engineer with hands-on Terraform, Kubernetes, and CI/CD pipeline experience — 4 production-grade projects on GitHub. Cloud engineering internship at Global Brands Group (GBG) covering enterprise AWS security, networking, migration, and disaster recovery, plus structured training at NTI and iVolve. Award-winning graduation project. Seeking a Cloud or DevOps role to contribute to scalable, reliable systems.</p>
-                    <a href="images/Anas_Tarek_CV.pdf" download class="btn-download">Download CV</a>
+                    <a href="images/Anas_Tarek_CV.pdf" target="_blank" class="btn-download">Download CV</a>
                 </div>
             </div>
         </section>
@@ -75,7 +76,7 @@
             <h2>Tools</h2>
             <p class="section-intro">Here are some of the skills and tools that I am familiar with and continue to improve on.</p>
             <div class="tool-cards">
-                <div class="tool-card" onclick="window.location.href='https://aws.amazon.com/'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="images/AWS.svg" alt="AWS">
                     </div>
@@ -84,7 +85,7 @@
                         <p>Amazon Web Services is a cloud computing platform by Amazon, offering services like EC2, S3, and Lambda.</p>
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://www.huaweicloud.com/'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="images/huawei-cloud.png" alt="Huawei Cloud">
                     </div>
@@ -93,7 +94,7 @@
                         <p>Huawei Cloud provides a comprehensive cloud computing platform with services for infrastructure and AI.</p>
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://www.jenkins.io/'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins">
                     </div>
@@ -102,7 +103,7 @@
                         <p>Open-source automation server for building, testing, and deploying CI/CD pipelines.</p>
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://www.python.org/'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="images/python.png" alt="Python">
                     </div>
@@ -111,7 +112,7 @@
                         <p>Python is a versatile programming language used for automation, data analysis, and cloud scripting.</p>
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://git-scm.com/'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="images/git.png" alt="Git">
                     </div>
@@ -120,7 +121,7 @@
                         <p>Git is a distributed version control system. GitHub allows hosting and collaborating on Git repos.</p>
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://www.notion.so/'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="images/notion.jpg" alt="Notion">
                     </div>
@@ -129,7 +130,7 @@
                         <p>Notion is a productivity tool for task management, note-taking, and project planning.</p>
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://www.terraform.io/'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="images/terraform.png" alt="Terraform">
                     </div>
@@ -138,7 +139,7 @@
                         <p>Terraform is an open-source infrastructure as code software tool for provisioning cloud resources.</p>
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://www.linux.org/'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
                     </div>
@@ -147,7 +148,7 @@
                         <p>Linux system administration including RHCSA-level skills, shell scripting, and server management.</p>
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://www.docker.com/'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
                     </div>
@@ -156,7 +157,7 @@
                         <p>Container platform for building, shipping, and running applications in isolated environments.</p>
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://kubernetes.io/'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
                     </div>
@@ -165,7 +166,7 @@
                         <p>Container orchestration platform for automating deployment, scaling, and management of containerized apps.</p>
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://www.ansible.com/'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" alt="Ansible">
                     </div>
@@ -174,7 +175,7 @@
                         <p>Agentless automation tool for configuration management, application deployment, and infrastructure orchestration.</p>
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://github.com/features/actions'">
+                <div class="tool-card">
                     <div class="tool-icon-circle">
                         <img src="images/GitHub Actions.svg" alt="GitHub Actions">
                     </div>
@@ -283,7 +284,7 @@
             <h2>Certificates</h2>
             <p class="section-intro">Throughout my time in University and with self-study I was able to achieve some of the following credentials. Feel free to verify my certifications or view my badges on Credly.</p>
             <div class="tool-cards">
-                <div class="tool-card" onclick="window.location.href='https://www.credly.com/badges/d0969e30-3eaa-4dba-913b-5c68a5b9efdd/public_url'">
+                <div class="tool-card" onclick="window.open('https://www.credly.com/badges/d0969e30-3eaa-4dba-913b-5c68a5b9efdd/public_url','_blank')">
                     <div class="tool-icon-circle">
                         <img src="images/aws-certified-cloud-practitioner.png" alt="AWS Certified Cloud Practitioner">
                     </div>
@@ -293,7 +294,7 @@
                     </div>
                 </div>
                 
-                <div class="tool-card" onclick="window.location.href='https://www.credly.com/badges/0bf771d5-4f64-4bb5-81d0-70a3a5582a56/public_url'">
+                <div class="tool-card" onclick="window.open('https://www.credly.com/badges/0bf771d5-4f64-4bb5-81d0-70a3a5582a56/public_url','_blank')">
                     <div class="tool-icon-circle">
                         <img src="images/aws-cloud-quest-cloud-practitioner.png" alt="aws-cloud-quest-cloud-practitioner">
                     </div>
@@ -302,7 +303,7 @@
                         
                     </div>
                 </div>
-                <div class="tool-card" onclick="window.location.href='https://www.credly.com/badges/bbf1922a-1572-41d7-b2c8-fd09c8dfbaa6/public_url'">
+                <div class="tool-card" onclick="window.open('https://www.credly.com/badges/bbf1922a-1572-41d7-b2c8-fd09c8dfbaa6/public_url','_blank')">
                     <div class="tool-icon-circle">
                         <img src="images/aws-educate-web-builder.png" alt="aws-educate-web-builder">
                     </div>
@@ -321,7 +322,7 @@
                     </div>
                 </div>
 
-                <div class="tool-card" onclick="window.location.href='https://www.credly.com/go/1MFEh95X'">
+                <div class="tool-card" onclick="window.open('https://www.credly.com/go/1MFEh95X','_blank')">
                     <div class="tool-icon-circle">
                         <img src="images/aws-academy-graduate-cloud-architecting-training-ba.png" alt="AWS Academy Graduate - Cloud Architecting">
                     </div>
@@ -331,7 +332,7 @@
                     </div>
                 </div>
 
-                <div class="tool-card" onclick="window.location.href='https://www.credly.com/go/eLz7jfAI'">
+                <div class="tool-card" onclick="window.open('https://www.credly.com/go/eLz7jfAI','_blank')">
                     <div class="tool-icon-circle">
                         <img src="images/aws-academy-graduate-cloud-foundations-training-bad.png" alt="AWS Academy Graduate - Cloud Foundations">
                     </div>
@@ -361,7 +362,7 @@
                     </div>
                 </div>
 
-                <div class="tool-card" onclick="window.location.href='https://intranet.alxswe.com/certificates/9f7ZTPREpM'">
+                <div class="tool-card" onclick="window.open('https://intranet.alxswe.com/certificates/9f7ZTPREpM','_blank')">
                     <div class="tool-icon-circle cert-photo">
                         <img src="images/66-alx-aice-ai-career-essentials-certificate-anas-tarek.png" alt="ALX AI Career Essentials">
                     </div>
@@ -433,7 +434,7 @@
                     </div>
                 </div>
 
-                <div class="tool-card" onclick="window.location.href='https://coursera.org/verify/FUGU88ZLOAB3'">
+                <div class="tool-card" onclick="window.open('https://coursera.org/verify/FUGU88ZLOAB3','_blank')">
                     <div class="tool-icon-circle">
                         <img src="images/terraform.png" alt="Introduction to Terraform">
                     </div>
@@ -443,7 +444,7 @@
                     </div>
                 </div>
 
-                <div class="tool-card" onclick="window.location.href='https://www.credly.com/badges/bbf1922a-1572-41d7-b2c8-fd09c8dfbaa6/public_url'">
+                <div class="tool-card" onclick="window.open('https://www.credly.com/badges/bbf1922a-1572-41d7-b2c8-fd09c8dfbaa6/public_url','_blank')">
                     <div class="tool-icon-circle">
                         <img src="images/aws-educate-web-builder.png" alt="AWS Educate Web App Dev Builder">
                     </div>
@@ -514,7 +515,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#00C4B4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><path d="M6.5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2.5"/><path d="M12 15l5 6H7l5-6z"/></svg>
                     </div>
                     <div class="project-info">
-                        <h4><a href="https://github.com/Anas990978/cloud-resume-challenge">Cloud Resume Challenge</a></h4>
+                        <h4><a href="https://github.com/Anas990978/cloud-resume-challenge" target="_blank">Cloud Resume Challenge</a></h4>
                         <p class="resume-date">June 2025 - Present</p>
                         <p>Full-stack serverless resume site on AWS with S3, CloudFront, Lambda visitor counter, DynamoDB, Terraform IaC, and GitHub Actions CI/CD.</p>
                         <div class="project-tags">
@@ -528,7 +529,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#00C4B4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/><path d="M12 7v5l3 3"/></svg>
                     </div>
                     <div class="project-info">
-                        <h4><a href="https://github.com/Maliikx/soul_support">Soul Support — Mental Health App</a></h4>
+                        <h4><a href="https://github.com/Maliikx/soul_support" target="_blank">Soul Support — Mental Health App</a></h4>
                         <p class="resume-date">2024 - 2025 · Graduation Project</p>
                         <p>AI-powered mental health application with "Soul Mate" chatbot using TensorFlow/Keras NLP model. Grade: Excellent | Best Team – SIM Dept. | Top 8 AASTMT Capstone Prize.</p>
                         <div class="project-tags">
@@ -584,7 +585,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#00C4B4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
                     </div>
                     <div class="project-info">
-                        <h4><a href="https://coursera.org/share/222d57ff2b3b65a8fc59dba4a75010ac">AWS Multi-Tier VPC Architecture</a></h4>
+                        <h4><a href="https://coursera.org/share/222d57ff2b3b65a8fc59dba4a75010ac" target="_blank">AWS Multi-Tier VPC Architecture</a></h4>
                         <p class="resume-date">August 2024</p>
                         <p>Custom VPC with public/private subnets across AZs, Internet Gateway, NAT Gateway, and configured route tables for controlled traffic flow.</p>
                         <div class="project-tags">
@@ -598,7 +599,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#00C4B4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="15" r="2"/></svg>
                     </div>
                     <div class="project-info">
-                        <h4><a href="https://coursera.org/share/f0937d3b1eb8dbdd6bafa054fb285386">Semantic Segmentation with Amazon SageMaker</a></h4>
+                        <h4><a href="https://coursera.org/share/f0937d3b1eb8dbdd6bafa054fb285386" target="_blank">Semantic Segmentation with Amazon SageMaker</a></h4>
                         <p class="resume-date">2024</p>
                         <p>Trained and deployed a semantic segmentation deep learning model on SageMaker using the IIIT-Oxford Pets Dataset with S3-backed data pipeline.</p>
                         <div class="project-tags">
@@ -691,7 +692,11 @@
     <script>
         function toggleMobileMenu() {
             const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.mobile-overlay');
+            const toggle = document.querySelector('.mobile-menu-toggle');
             sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            toggle.classList.toggle('active');
         }
         
         // Close mobile menu when clicking on nav items
@@ -701,6 +706,8 @@
                 icon.addEventListener('click', () => {
                     if (window.innerWidth <= 768) {
                         document.querySelector('.sidebar').classList.remove('active');
+                        document.querySelector('.mobile-overlay').classList.remove('active');
+                        document.querySelector('.mobile-menu-toggle').classList.remove('active');
                     }
                 });
             });
