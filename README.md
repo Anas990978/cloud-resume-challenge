@@ -1,133 +1,97 @@
-# Cloud Resume Challenge
+# Cloud Resume Challenge — Anas Tarek
 
-A serverless resume website built on AWS as part of the Cloud Resume Challenge.
+A serverless portfolio website built on AWS as part of the [Cloud Resume Challenge](https://cloudresumechallenge.dev/). Live at **[anastarek.com](https://anastarek.com)**
 
-## 🌐 Live Website
-- **Custom Domain**: [https://anas-webiste.com](https://anas-webiste.com)
-- **CloudFront URL**: [https://d1hmohpegyvejg.cloudfront.net](https://d1hmohpegyvejg.cloudfront.net)
+![Architecture Diagram](diagrams/MY-Website-Archeticture2.png)
 
-## 🏗️ Architecture
+## Architecture
 
-### Frontend
-- **S3** - Static website hosting
-- **CloudFront** - CDN with HTTPS
-- **Route 53** - Custom domain management
-- **ACM** - SSL/TLS certificates
+The site runs on a fully serverless AWS stack:
 
-### Backend
-- **API Gateway** - REST API endpoint
-- **Lambda** - Serverless visitor counter
-- **DynamoDB** - Visitor count storage
+**Frontend:** S3 (static hosting) → CloudFront (CDN + HTTPS) → Route 53 (custom domain) → ACM (SSL/TLS)
 
-### Infrastructure
-- **Terraform** - Infrastructure as Code
-- **GitHub Actions** - CI/CD pipeline
+**Backend:** API Gateway → Lambda (Python) → DynamoDB — powers a real-time visitor counter
 
-## 🚀 Features
+**Infrastructure:** All provisioned with Terraform. Five GitHub Actions workflows handle CI/CD — frontend deploy, Lambda deploy, infrastructure changes, full deploy, and tests.
 
-- ✅ Responsive design (mobile-friendly)
-- ✅ Real-time visitor counter
-- ✅ SSL/HTTPS enabled
-- ✅ Custom domain
-- ✅ Automated deployments
-- ✅ Infrastructure as Code
+## Features
 
-## 🛠️ Local Development
+- Responsive design with slide-in mobile menu, horizontal scroll carousels, and scroll-snap
+- 6 scroll-triggered animations: tilt hover, staggered entrance, count-up counters, timeline draw-in, parallax hero, glow pulse
+- Certificate showcase organized by category (Cloud, DevOps, Achievements) with expandable grids
+- Real-time visitor counter (API Gateway + Lambda + DynamoDB)
+- Contact form, SEO meta tags, Open Graph for LinkedIn/Twitter previews
+- Automated deployments on every push to `main`
+
+## Tech Stack
+
+| Layer          | Tools                                                    |
+|----------------|----------------------------------------------------------|
+| Frontend       | HTML, CSS, JavaScript                                    |
+| Hosting        | AWS S3, CloudFront, Route 53, ACM                        |
+| Backend        | AWS Lambda (Python), API Gateway, DynamoDB               |
+| IaC            | Terraform                                                |
+| CI/CD          | GitHub Actions                                           |
+| Containers     | Docker, Kubernetes, OpenShift                            |
+| Config Mgmt    | Ansible                                                  |
+| OS             | Linux (RHEL)                                             |
+
+## Project Structure
+
+```
+cloud-resume-challenge/
+├── frontend/           # Static site (HTML, CSS, JS, images)
+├── backend/            # Lambda function code (Python)
+├── terraform/          # Infrastructure as Code
+├── tests/              # Automated tests
+├── diagrams/           # Architecture diagrams
+└── .github/workflows/  # CI/CD pipelines
+    ├── frontend-deploy.yml
+    ├── lambda-deploy.yml
+    ├── infrastructure-deploy.yml
+    ├── deploy-all.yml
+    └── test.yml
+```
+
+## Setup & Deployment
 
 ### Prerequisites
+- AWS CLI configured with appropriate credentials
 - Terraform installed
 - Node.js (for testing)
 
-### Setup
-1. Clone the repository
-2. Configure AWS credentials
-3. Update Terraform variables
-4. Deploy infrastructure: `cd terraform && terraform apply`
-5. Upload frontend: `aws s3 sync frontend/ s3://your-bucket-name`
+### Deploy Infrastructure
+```bash
+cd terraform
+terraform init
+terraform plan
+terraform apply
+```
 
-## 🔄 CI/CD Pipeline
+### Deploy Frontend
+```bash
+aws s3 sync frontend/ s3://your-bucket-name
+aws cloudfront create-invalidation --distribution-id YOUR_DIST_ID --paths "/*"
+```
 
-The project uses GitHub Actions for automated deployments:
-
-- **Frontend changes** → Automatic S3 sync + CloudFront invalidation
-- **Backend changes** → Automatic Lambda function update
-- **Infrastructure changes** → Automatic Terraform apply
-- **All changes** → Comprehensive deployment workflow
-
-### Required GitHub Secrets
+### GitHub Actions Secrets Required
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
 - `CLOUDFRONT_DISTRIBUTION_ID`
 
-## 📱 Mobile Support
+Push to `main` and the pipelines handle the rest — S3 sync, CloudFront invalidation, Lambda update, and Terraform apply all run automatically.
 
-The website is fully responsive with:
-- Mobile-first navigation
-- Touch-friendly interface
-- Optimized layouts for all screen sizes
-- Progressive enhancement
+## Certifications
 
-## 🧪 Testing
+This project reflects skills validated by:
 
-Run tests locally:
-```bash
-# Test HTML structure
-grep -q "<!DOCTYPE html>" frontend/index.html
+**Cloud:** AWS Certified Cloud Practitioner, Huawei HCCDA & HCCDP, Oracle OCI 2025 Foundations, AWS Academy (Cloud Architecting, Foundations, Security)
 
-# Test API endpoint
-curl https://5xwzjw1xh6.execute-api.us-east-1.amazonaws.com/prod/visitors
-```
+**DevOps & Linux:** NTI Cloud DevOps Accelerator, Terraform (Coursera), Red Hat System Administration I & II, RHEL Automation with Ansible, OpenShift Administration & Development
 
-## 📊 Monitoring
+## Connect
 
-- CloudWatch logs for Lambda function
-- CloudFront access logs
-- Real-time visitor tracking
-
-## 🔒 Security
-
-- HTTPS enforced via CloudFront
-- CORS properly configured
-- IAM roles with minimal permissions
-- No hardcoded credentials
-
-## 💰 Cost Optimization
-
-- Serverless architecture (pay-per-use)
-- CloudFront caching reduces origin requests
-- S3 static hosting (minimal cost)
-- DynamoDB on-demand pricing
-
-## 📈 Performance
-
-- Global CDN via CloudFront
-- Optimized images and assets
-- Minimal JavaScript footprint
-- Fast loading times worldwide
-
-## 🏆 Skills Demonstrated
-
-- ✅ Frontend Development (HTML/CSS/JavaScript)
-- ✅ Serverless Computing (AWS Lambda)
-- ✅ NoSQL Databases (DynamoDB)
-- ✅ API Development (API Gateway)
-- ✅ CDN & Caching (CloudFront)
-- ✅ DNS Management (Route 53)
-- ✅ SSL/TLS (ACM)
-- ✅ Infrastructure as Code (Terraform)
-- ✅ CI/CD Pipelines (GitHub Actions)
-- ✅ DevOps Practices
-
-## 📝 Blog Post
-
-Read about my experience building this project: [[Blog Post Link](https://www.linkedin.com/pulse/my-cloud-resume-challenge-journey-building-serverless-anas-tarek-dy6ic/)]
-
-## 🤝 Connect
-
-- **LinkedIn**: [https://www.linkedin.com/in/anastarek](https://www.linkedin.com/in/anastarek)
-- **GitHub**: [https://github.com/Anas990978](https://github.com/Anas990978)
-- **Email**: anastarek10777@gmail.com
-
----
-
-*Built with ❤️ as part of the Cloud Resume Challenge*
+- **LinkedIn:** [linkedin.com/in/anastarek](https://www.linkedin.com/in/anastarek)
+- **GitHub:** [github.com/Anas990978](https://github.com/Anas990978)
+- **Email:** anastarek10777@gmail.com
+- **Blog Post:** [My Cloud Resume Challenge Journey](https://www.linkedin.com/pulse/my-cloud-resume-challenge-journey-building-serverless-anas-tarek-dy6ic/)
