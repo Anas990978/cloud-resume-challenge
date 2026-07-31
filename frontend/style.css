@@ -284,6 +284,49 @@ body {
     border-radius: 50%;
 }
 
+/* Certificate Tabs */
+.cert-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0 10px;
+    flex-wrap: wrap;
+}
+
+.cert-tab {
+    padding: 8px 24px;
+    border-radius: 25px;
+    border: 1px solid #333;
+    background: transparent;
+    color: #888;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cert-tab:hover {
+    border-color: #129990;
+    color: #D3D7D4;
+}
+
+.cert-tab.active {
+    background: #129990;
+    border-color: #129990;
+    color: #fff;
+}
+
+.cert-item {
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cert-item.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    position: absolute;
+    pointer-events: none;
+}
+
 .tool-icon-circle.cert-photo {
     border-radius: 12px;
     width: 140px;
@@ -780,8 +823,9 @@ body {
 /* Scroll Fade-in Animation */
 .fade-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
 }
 
 .fade-in.visible {
@@ -789,18 +833,12 @@ body {
     transform: translateY(0);
 }
 
-/* Staggered entrance */
-.stagger-item {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity, transform;
+/* Sections with staggered cards: section fades in but cards animate separately */
+.fade-in.visible .stagger-item {
+    /* Cards handle their own animation — don't inherit section transform */
 }
 
-.stagger-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* Staggered entrance handled via inline JS for smooth sequencing */
 
 /* Glow pulse on active nav */
 @keyframes glow-pulse {
