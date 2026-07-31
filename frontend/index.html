@@ -25,7 +25,7 @@
     <link rel="icon" type="image/png" href="images/my-photo.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2026073105">
+    <link rel="stylesheet" href="style.css?v=2026073106">
 </head>
 <body>
     <div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
@@ -836,26 +836,30 @@
         });
     </script>
 
-    <!-- 1. Tilt hover on cards -->
+    <!-- Animations -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. Tilt hover — GPU-accelerated with requestAnimationFrame
             document.querySelectorAll('.tool-card').forEach(card => {
+                let ticking = false;
                 card.addEventListener('mousemove', e => {
-                    const r = card.getBoundingClientRect();
-                    const x = (e.clientX - r.left) / r.width - 0.5;
-                    const y = (e.clientY - r.top) / r.height - 0.5;
-                    card.style.transform = 'rotateY(' + (x * 15) + 'deg) rotateX(' + (-y * 15) + 'deg) scale(1.03)';
+                    if (ticking) return;
+                    ticking = true;
+                    requestAnimationFrame(() => {
+                        const r = card.getBoundingClientRect();
+                        const x = (e.clientX - r.left) / r.width - 0.5;
+                        const y = (e.clientY - r.top) / r.height - 0.5;
+                        card.style.transform = 'rotateY(' + (x * 12) + 'deg) rotateX(' + (-y * 12) + 'deg) scale(1.02)';
+                        ticking = false;
+                    });
                 });
                 card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+                    card.style.transform = '';
                 });
             });
-        });
-    </script>
 
-    <!-- 2. Staggered entrance for cards -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+            // 2. Staggered entrance
             document.querySelectorAll('.tool-cards').forEach(container => {
                 const cards = container.querySelectorAll('.tool-card');
                 cards.forEach(c => c.classList.add('stagger-item'));
@@ -863,94 +867,58 @@
                 const obs = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            const items = entry.target.querySelectorAll('.stagger-item');
-                            items.forEach((item, i) => {
-                                setTimeout(() => item.classList.add('visible'), i * 100);
+                            entry.target.querySelectorAll('.stagger-item').forEach((item, i) => {
+                                setTimeout(() => item.classList.add('visible'), i * 80);
                             });
                             obs.unobserve(entry.target);
                         }
                     });
-                }, { threshold: 0.15 });
+                }, { threshold: 0.1 });
 
                 obs.observe(container);
             });
-        });
-    </script>
 
-    <!-- 3. Counter count-up animation -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+            // 3. Counter count-up with requestAnimationFrame
             const counterEl = document.getElementById('visitor-count');
             let counted = false;
 
             function animateCount(target) {
                 if (counted) return;
                 counted = true;
-                let current = 0;
-                const duration = 1500;
-                const steps = 60;
-                const increment = target / steps;
-                const interval = duration / steps;
+                const duration = 1200;
+                const start = performance.now();
 
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    counterEl.textContent = Math.round(current).toLocaleString();
-                }, interval);
+                function step(now) {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    counterEl.textContent = Math.round(eased * target).toLocaleString();
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
             }
 
-            const origUpdate = window.updateVisitorCount;
-            const origFetch = window.fetch;
-
-            const obs = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && counterEl.textContent !== 'Loading...') {
-                        const val = parseInt(counterEl.textContent.replace(/,/g, ''));
-                        if (!isNaN(val) && !counted) {
-                            counterEl.textContent = '0';
-                            animateCount(val);
-                        }
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            obs.observe(counterEl.closest('.visitor-counter'));
-
-            const origSetText = Object.getOwnPropertyDescriptor(Node.prototype, 'textContent').set;
-            let apiValue = null;
-            const checkInterval = setInterval(() => {
+            const checkCounter = setInterval(() => {
                 const text = counterEl.textContent;
-                if (text !== 'Loading...' && text !== '0' && !counted) {
-                    apiValue = parseInt(text.replace(/,/g, ''));
-                    if (!isNaN(apiValue)) {
+                if (text !== 'Loading...' && text !== '0' && text !== 'Error' && !counted) {
+                    const val = parseInt(text.replace(/,/g, ''));
+                    if (!isNaN(val)) {
                         counterEl.textContent = '0';
-                        animateCount(apiValue);
-                        clearInterval(checkInterval);
+                        animateCount(val);
+                        clearInterval(checkCounter);
                     }
                 }
-            }, 200);
+            }, 150);
+            setTimeout(() => clearInterval(checkCounter), 10000);
 
-            setTimeout(() => clearInterval(checkInterval), 10000);
-        });
-    </script>
-
-    <!-- 4. Timeline draw-in -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+            // 4. Timeline draw-in
             document.querySelectorAll('.timeline').forEach(timeline => {
                 const dots = timeline.querySelectorAll('.timeline-dot');
-                const line = timeline.querySelector('::before') || timeline;
 
                 const obs = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            timeline.classList.add('draw-in');
                             dots.forEach((dot, i) => {
-                                setTimeout(() => dot.classList.add('visible'), 300 + i * 300);
+                                setTimeout(() => dot.classList.add('visible'), 200 + i * 250);
                             });
                             obs.unobserve(entry.target);
                         }
@@ -959,24 +927,24 @@
 
                 obs.observe(timeline);
             });
-        });
-    </script>
 
-    <!-- 5. Parallax hero background -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+            // 5. Parallax hero — GPU transform instead of background-position
             const hero = document.querySelector('.hero-section');
             if (hero) {
-                window.addEventListener('scroll', () => {
+                let lastScroll = -1;
+                function parallax() {
                     const scrolled = window.scrollY;
-                    if (scrolled < window.innerHeight) {
-                        hero.style.backgroundPositionY = (scrolled * 0.4) + 'px';
+                    if (scrolled !== lastScroll && scrolled < window.innerHeight * 1.2) {
+                        lastScroll = scrolled;
+                        hero.style.backgroundPositionY = (scrolled * 0.35) + 'px';
                     }
-                });
+                    requestAnimationFrame(parallax);
+                }
+                requestAnimationFrame(parallax);
             }
+
+            // 6. Glow pulse — handled via CSS keyframes on .nav-icon.active
         });
     </script>
-
-    <!-- 6. Glow pulse handled via CSS on .nav-icon.active -->
 </body>
 </html>
