@@ -178,19 +178,21 @@ body {
 /* About Section Styling */
 .about-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    max-width: 800px;
+    gap: 30px;
+    max-width: 700px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .about-photo {
-    margin-right: 50px;
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #129990;
+    box-shadow: 0 0 30px rgba(0, 196, 180, 0.2);
 }
 
 .about-text {
@@ -198,16 +200,37 @@ body {
 }
 
 .about-text h3 {
-    margin-top: 20px;
     font-size: 1.8em;
     color: #FFFFFF;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .about-text p {
-    margin-top: 30px;
     font-size: 1.1em;
-    line-height: 1.6;
+    line-height: 1.8;
+    color: #D3D7D4;
+}
+
+/* Download CV Button */
+.btn-download {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: #00C4B4;
+    border: 2px solid #00C4B4;
+    border-radius: 30px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-download:hover {
+    background-color: #00C4B4;
+    color: #0f1a1a;
+    box-shadow: 0 0 20px rgba(0, 196, 180, 0.3);
 }
 
 /* Tools Section Styling */
@@ -635,6 +658,100 @@ body {
     margin-bottom: 10px;
 }
 
+/* Contact Section */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #D3D7D4;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 15px 25px;
+    background-color: rgba(28, 37, 38, 0.7);
+    border: 1px solid #129990;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background-color: rgba(0, 196, 180, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(0, 196, 180, 0.2);
+}
+
+.contact-item img {
+    width: 28px;
+    height: 28px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.contact-item:hover img {
+    filter: grayscale(0%);
+}
+
+/* Scroll-to-top Button */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #129990;
+    color: #FFFFFF;
+    border: none;
+    font-size: 1.4em;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 0 15px rgba(0, 196, 180, 0.3);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    background-color: #00C4B4;
+    transform: translateY(-3px);
+}
+
+/* Typing Cursor */
+.cursor {
+    font-family: 'JetBrains Mono', monospace;
+    color: #00C4B4;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Scroll Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Footer Styling */
 footer {
     text-align: center;
@@ -959,21 +1076,7 @@ footer a:hover {
    Techy / Terminal Theme Additions
    ============================================ */
 
-/* Subtle grid overlay on the hero section */
-.hero-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-        linear-gradient(rgba(18, 153, 144, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(18, 153, 144, 0.08) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 1;
-}
+/* Grid overlay removed */
 
 /* Terminal prompt motif on the subtitle */
 .prompt {

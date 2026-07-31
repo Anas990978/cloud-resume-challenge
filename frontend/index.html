@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anas Tarek | Website</title>
+    <title>Anas Tarek | Cloud & DevOps Engineer</title>
+    <meta name="description" content="AWS-certified Cloud & DevOps Engineer with hands-on Terraform, Kubernetes, and CI/CD experience. Portfolio showcasing production-grade cloud projects.">
+    <meta name="author" content="Anas Tarek">
+    <meta name="keywords" content="Cloud Engineer, DevOps, AWS, Terraform, Kubernetes, Docker, CI/CD, Portfolio">
+
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Anas Tarek | Cloud & DevOps Engineer">
+    <meta property="og:description" content="AWS-certified Cloud & DevOps Engineer — Terraform, Kubernetes, CI/CD. View my portfolio and projects.">
+    <meta property="og:image" content="images/my-photo.jpg">
+    <meta property="og:url" content="https://anastarek.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anas Tarek | Cloud & DevOps Engineer">
+    <meta name="twitter:description" content="AWS-certified Cloud & DevOps Engineer — Terraform, Kubernetes, CI/CD.">
+    <meta name="twitter:image" content="images/my-photo.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/my-photo.jpg">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2025070623">
+    <link rel="stylesheet" href="style.css?v=2026073101">
 </head>
 <body>
     <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
@@ -22,14 +42,14 @@
             <a href="#resume" class="nav-icon" data-title="Resume"><img src="images/resume.png" alt="Resume"></a>
             <a href="#certificates" class="nav-icon" data-title="Certificates"><img src="images/certificates.png" alt="Certificates"></a>
             <a href="#projects" class="nav-icon" data-title="Projects"><img src="images/projects.png" alt="Projects"></a>
-
+            <a href="#contact" class="nav-icon" data-title="Contact"><img src="images/email.png" alt="Contact"></a>
         </div>
     </div>
     <div class="content">
         <section id="home" class="hero-section">
             <div class="hero-content">
                 <h1>Anas Tarek</h1>
-                <p class="subtitle"><span class="prompt"></span> Cloud & DevOps Engineer</p>
+                <p class="subtitle"><span class="prompt">&gt;</span> <span id="typed-text"></span><span class="cursor">|</span></p>
                 <div class="social-icons">
                     <a href="https://github.com/Anas990978"><img src="images/github.png" alt="GitHub"></a>
                     <a href="https://www.linkedin.com/in/anastarek"><img src="images/linkedin.png" alt="LinkedIn"></a>
@@ -47,6 +67,7 @@
                 <div class="about-text">
                     <h3>Cloud & DevOps Engineer</h3>
                     <p>AWS-certified Cloud & DevOps Engineer with hands-on Terraform, Kubernetes, and CI/CD pipeline experience — 4 production-grade projects on GitHub. Cloud engineering internship at Global Brands Group (GBG) covering enterprise AWS security, networking, migration, and disaster recovery, plus structured training at NTI and iVolve. Award-winning graduation project. Seeking a Cloud or DevOps role to contribute to scalable, reliable systems.</p>
+                    <a href="images/Anas_Tarek_CV.pdf" download class="btn-download">Download CV</a>
                 </div>
             </div>
         </section>
@@ -604,11 +625,31 @@
         </section>
 
 
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <p class="section-intro">Got a question or want to work together? Feel free to reach out.</p>
+            <div class="contact-links">
+                <a href="mailto:anastarek10777@gmail.com" class="contact-item">
+                    <img src="images/email.png" alt="Email">
+                    <span>anastarek10777@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/anastarek" target="_blank" class="contact-item">
+                    <img src="images/linkedin.png" alt="LinkedIn">
+                    <span>linkedin.com/in/anastarek</span>
+                </a>
+                <a href="https://github.com/Anas990978" target="_blank" class="contact-item">
+                    <img src="images/github.png" alt="GitHub">
+                    <span>github.com/Anas990978</span>
+                </a>
+            </div>
+        </section>
+
         <footer>
-            <p>© Anas Tarek. All rights reserved.</p>
+            <p>&copy; Anas Tarek. All rights reserved.</p>
         </footer>
     </div>
 
+    <button id="scroll-top" class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
 
     <!-- JavaScript -->
     <script>
@@ -697,6 +738,53 @@
 
         document.addEventListener('DOMContentLoaded', setActiveNav);
         console.log("Navigation JS loaded");
+    </script>
+
+    <!-- Typing animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const text = 'Cloud & DevOps Engineer';
+            const el = document.getElementById('typed-text');
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    el.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 80);
+                }
+            }
+            setTimeout(type, 500);
+        });
+    </script>
+
+    <!-- Scroll-to-top visibility -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scroll-top');
+            if (window.scrollY > 400) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+    </script>
+
+    <!-- Scroll fade-in animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(s => s.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(s => observer.observe(s));
+        });
     </script>
 </body>
 </html>
